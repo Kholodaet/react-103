@@ -1,9 +1,23 @@
 .container {
-  padding: 15px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .header {
   display: flex;
-  gap: 40px;
   align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.article {
+  margin-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+.progress {
+  margin-top: 20px;
 }

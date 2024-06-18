@@ -1,6 +1,9 @@
 import { useState } from "react";
 import css from "./Reader.module.css";
 import Progress from "../Progress";
+import Title from "../Title/Title";
+import Buttons from "../Buttons/Buttons";
+import Article from "../Articles/Articles";
 
 export default function Reader({ items }) {
   const [idx, setIdx] = useState(0);
@@ -20,22 +23,17 @@ export default function Reader({ items }) {
   return (
     <div className={css.container}>
       <header className={css.header}>
-        <div>
-          <button onClick={handlePrev} disabled={isFirst}>
-            Prev
-          </button>
-          <button onClick={handleNext} disabled={isLast}>
-            Next
-          </button>
-        </div>
-
+        <Title />
+        <Buttons
+          handlePrev={handlePrev}
+          handleNext={handleNext}
+          isFirst={isFirst}
+          isLast={isLast}
+        />
         <Progress current={idx + 1} total={items.length} />
       </header>
 
-      <article>
-        <h2>{currentArticle.topic}</h2>
-        <p>{currentArticle.text}</p>
-      </article>
+      <Article topic={currentArticle.topic} text={currentArticle.text} />
     </div>
   );
 }
